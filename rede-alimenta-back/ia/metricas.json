@@ -1,0 +1,83 @@
+{
+  "dataset": {
+    "linhas": 3000,
+    "origem": "simulado",
+    "treino": 2099,
+    "validacao": 451,
+    "teste": 450
+  },
+  "seed": 42,
+  "versao_sklearn": "1.9.1",
+  "comparacao_validacao": {
+    "baseline_majoritaria": {
+      "acuracia_validacao": 0.6984,
+      "f1_macro_validacao": 0.2742
+    },
+    "logistic_regression": {
+      "acuracia_validacao": 0.8714,
+      "f1_macro_validacao": 0.7624
+    },
+    "logistic_regression_balanced": {
+      "acuracia_validacao": 0.8603,
+      "f1_macro_validacao": 0.7916
+    },
+    "random_forest": {
+      "acuracia_validacao": 0.8603,
+      "f1_macro_validacao": 0.7284
+    }
+  },
+  "modelo_escolhido": "logistic_regression_balanced",
+  "teste": {
+    "acuracia": 0.84,
+    "f1_macro": 0.7618,
+    "recall_alto_risco": 0.8921,
+    "precisao_alto_risco": 0.9493,
+    "acuracia_baseline": 0.7,
+    "latencia_media_ms_por_lote": 0.0126,
+    "matriz_confusao": {
+      "labels": [
+        "baixo",
+        "medio",
+        "alto"
+      ],
+      "valores": [
+        [
+          51,
+          10,
+          0
+        ],
+        [
+          13,
+          46,
+          15
+        ],
+        [
+          4,
+          30,
+          281
+        ]
+      ]
+    },
+    "por_classe": {
+      "baixo": {
+        "precision": 0.75,
+        "recall": 0.8361,
+        "f1-score": 0.7907,
+        "support": 61.0
+      },
+      "medio": {
+        "precision": 0.5349,
+        "recall": 0.6216,
+        "f1-score": 0.575,
+        "support": 74.0
+      },
+      "alto": {
+        "precision": 0.9493,
+        "recall": 0.8921,
+        "f1-score": 0.9198,
+        "support": 315.0
+      }
+    }
+  },
+  "limitacoes": "Dados simulados por regra com ruído; métricas não indicam desempenho em cenário real."
+}

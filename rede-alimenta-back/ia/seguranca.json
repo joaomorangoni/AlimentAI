@@ -1,0 +1,59 @@
+{
+  "atualizado_em": "2026-10-15",
+  "fonte": "ferramentas/gerar_seguranca.py (resultado real das ferramentas) e documentacao/05-devsecops-e-deploy.md",
+  "vulnerabilidades": {
+    "mitigadas": 46,
+    "em_analise": 0,
+    "criticas_altas_abertas": 0,
+    "detalhe": [
+      "44 ocorrências HIGH (8 CVEs) da base Debian removidas ao trocar para Alpine 3.24 (Trivy, 08/10/2026)",
+      "2 achados baixos do Bandit em ml/ corrigidos (14/10/2026)"
+    ]
+  },
+  "gates": [
+    {
+      "nome": "Bandit (backend e ml/)",
+      "tipo": "SAST",
+      "bloqueia": "média/alta",
+      "ultima_execucao_local": "sem achados"
+    },
+    {
+      "nome": "pip-audit (backend e ml/)",
+      "tipo": "Dependências",
+      "bloqueia": "qualquer CVE conhecida",
+      "ultima_execucao_local": "sem achados"
+    },
+    {
+      "nome": "Gitleaks (histórico completo)",
+      "tipo": "Segredos",
+      "bloqueia": "qualquer vazamento",
+      "ultima_execucao_local": "sem achados (histórico de 23 commits)"
+    },
+    {
+      "nome": "Trivy imagem (vuln, secret, misconfig)",
+      "tipo": "Container",
+      "bloqueia": "HIGH/CRITICAL",
+      "ultima_execucao_local": "sem achados"
+    },
+    {
+      "nome": "Trivy config (Dockerfile/Compose)",
+      "tipo": "IaC",
+      "bloqueia": "HIGH/CRITICAL",
+      "ultima_execucao_local": "sem achados"
+    },
+    {
+      "nome": "Testes automatizados da API",
+      "tipo": "Testes",
+      "bloqueia": "qualquer falha",
+      "ultima_execucao_local": "212 aprovados"
+    }
+  ],
+  "observacao": "Retrato local de 15/10/2026 (base e4c0c52 + alterações locais); a execução oficial é a do GitHub Actions. 'Sem achados' não equivale à ausência total de vulnerabilidades.",
+  "base": "e4c0c52 + alterações locais",
+  "ferramentas": [
+    "bandit 1.9.4",
+    "pip-audit 2.10.1",
+    "gitleaks v8.30.0",
+    "trivy 0.76.0"
+  ]
+}

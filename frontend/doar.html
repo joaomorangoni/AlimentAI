@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Quero doar · Rede Alimenta</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%232f704b'/%3E%3Ctext x='16' y='23' font-size='20' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3Ea%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="/style.css"><script src="/doar.js" defer></script></head>
+<body class="solo"><main class="solo-main">
+<a class="brand" href="/"><span class="logo">a</span>alimenta<span class="brand-dot">.</span></a>
+<section class="solo-card" id="form-area">
+<p class="eyebrow">ALIMENTO QUE CONECTA</p><h1>Quero doar alimentos</h1>
+<p>Conte o que você tem para doar. Nossa equipe confere a oferta e conecta com uma ONG que precisa, antes que o alimento perca a validade.</p>
+<form id="oferta" autocomplete="on">
+<fieldset><legend>Sobre você</legend><div class="solo-grid">
+<label class="wide">Nome ou empresa<input name="nome" type="text" required minlength="2" maxlength="120" autocomplete="name"></label>
+<label>E-mail<input name="email" type="email" required maxlength="160" autocomplete="email"></label>
+<label>Telefone (opcional)<input name="telefone" type="tel" maxlength="20" inputmode="tel" autocomplete="tel" placeholder="(11) 91234-5678"></label>
+</div></fieldset>
+<fieldset><legend>Endereço</legend><div class="solo-grid"><label>Cidade<input name="cidade" type="text" required minlength="2" maxlength="80" autocomplete="address-level2"></label><label>Estado<select name="estado" required autocomplete="address-level1"><option value="">Selecione</option><option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option></select></label><label>Bairro<input name="bairro" type="text" required maxlength="100" autocomplete="address-level3"></label><label>Rua<input name="rua" type="text" required maxlength="160" autocomplete="address-line1"></label><label>Número<input name="numero" type="text" required maxlength="20" placeholder="Ex.: 123 ou s/n"></label><label>Complemento (opcional)<input name="complemento" type="text" maxlength="120" autocomplete="address-line2"></label><label>CEP<input name="cep" type="text" required maxlength="9" pattern="[0-9]{5}-?[0-9]{3}" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"></label></div></fieldset>
+<fieldset><legend>O que você quer doar</legend><div class="solo-grid">
+<label>Alimento<input name="alimento" type="text" required minlength="2" maxlength="60" autocomplete="off" placeholder="Ex.: Pão francês"></label>
+<label>Categoria<select name="categoria" required autocomplete="off"><option value="">Selecione</option><option value="hortifruti">Hortifrúti</option><option value="padaria">Padaria</option><option value="laticinios">Laticínios</option><option value="carnes">Carnes</option><option value="prontos">Pratos prontos</option><option value="nao_perecivel">Não perecível</option></select></label>
+<label>Quantidade (kg)<input name="quantidade_kg" type="number" required min="0.01" max="10000" step="0.01" inputmode="decimal"></label>
+<label>Validade<input name="validade" type="date" required></label>
+</div><p class="hint-info" id="dica-validade"></p></fieldset>
+<label class="hp" aria-hidden="true">Não preencha este campo<input name="site" type="text" tabindex="-1" autocomplete="off"></label>
+<label class="check"><input name="aceite" type="checkbox" required><span>Li e aceito o <a href="/privacidade" target="_blank" rel="noopener">aviso de privacidade</a>: usamos seus dados só para coordenar esta doação e compartilhamos nome e contato apenas com a ONG que aceitar receber.</span></label>
+<p id="form-error" role="alert"></p>
+<button class="primary big" type="submit" id="enviar">Enviar oferta</button>
+</form></section>
+<section class="solo-card" id="sucesso" hidden><p class="eyebrow">OBRIGADO</p><h1>Oferta recebida</h1><p id="mensagem-sucesso"></p><div id="acompanhar-box" hidden><p>Guarde este código: com ele você acompanha, sem conta, em que etapa está a sua doação.</p><div class="link-box"><input id="codigo-oferta" readonly aria-label="Código de acompanhamento"><button type="button" id="copiar-codigo" class="primary">Copiar</button></div><p><a id="link-acompanhar" href="/acompanhar">Acompanhar minha oferta →</a></p></div><button type="button" id="nova-oferta">Enviar outra oferta</button></section>
+<footer><a href="/privacidade">Aviso de privacidade</a> · Rede Alimenta · Conectando quem pode doar a quem precisa receber.</footer>
+</main></body></html>

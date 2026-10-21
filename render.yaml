@@ -1,0 +1,33 @@
+# Blueprint do Render (plano gratuito). Os segredos NAO ficam no repositorio: informe-os no painel do Render.
+services:
+  - type: web
+    name: rede-alimenta-ia
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: false          # publique manualmente, depois que o pipeline do GitHub Actions estiver verde
+    envVars:
+      - key: DATABASE_URL      # use a string do Session pooler do Supabase (IPv4), com ?sslmode=require
+        sync: false
+      - key: API_TOKEN         # gere um token novo, exclusivo da nuvem (32+ caracteres)
+        sync: false
+      - key: TRUST_PROXY
+        value: "1"
+      - key: AUTO_MIGRAR       # 1: ao iniciar, aplica o esquema e as migracoes (aditivas e idempotentes). 0 desliga.
+        value: "1"
+      - key: ONG_LINK_SECRET   # assina os links das ONGs; trocar este valor invalida todos os links
+        generateValue: true
+      # Validacao do alimento por IA (gratuita): Groq principal e Gemini de reserva. Sem nenhuma chave, itens fora da lista local sao recusados.
+      - key: LLM_BASE_URL      # https://api.groq.com/openai/v1
+        sync: false
+      - key: LLM_MODEL         # openai/gpt-oss-120b
+        sync: false
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM2_BASE_URL     # https://generativelanguage.googleapis.com/v1beta/openai
+        sync: false
+      - key: LLM2_MODEL        # gemini-2.5-flash
+        sync: false
+      - key: LLM2_API_KEY
+        sync: false
